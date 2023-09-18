@@ -1,0 +1,1 @@
+{'person': 1661, 'bird': 24, 'cat': 81, 'cow': 9, 'dog': 134, 'horse': 32, 'sheep': 13, 'aeroplane': 15, 'bicycle': 100, 'boat': 38, 'bus': 48, 'car': 609, 'motorbike': 60, 'train': 20, 'bottle': 378, 'chair': 926, 'diningtable': 499, 'pottedplant': 267, 'sofa': 164, 'tvmonitor': 173}

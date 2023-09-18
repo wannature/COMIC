@@ -1,0 +1,67 @@
+# default num_head = 2
+criterions:
+  PerformanceLoss:
+    def_file: ./loss/SoftmaxLoss.py
+    loss_params: {}
+    optim_params: null
+    weight: 1.0
+last: false
+# apply incremental pca to remove main components
+apply_ipca: false
+num_components: 512
+model_dir: null
+tuning_memory: false
+networks:
+  classifier:
+    def_file: ./models/CausalNorm.py
+    optim_params: { lr: 0.01, momentum: 0.9, weight_decay: 0.0005 }
+    scheduler_params:
+      { coslr: false, warmup: false, endlr: 0.0, gamma: 0.1, step_size: 10 }
+    params:
+      {
+        dataset: MLT_coco,
+        feat_dim: 512,
+        num_classes: 365,
+        stage1_weights: false,
+        use_effect: true,
+        num_head: 1,
+        tau: 16.0,
+        alpha: 2,
+        gamma: 0.03125,
+      }
+  feat_model:
+    def_file: ./models/ResNet50Feature.py
+    fix: false
+    optim_params: { lr: 0.001, momentum: 0.9, weight_decay: 0.0005 }
+    scheduler_params:
+      { coslr: false, warmup: false, endlr: 0.0, gamma: 0.1, step_size: 10 }
+    params:
+      { dataset: MLT_coco, dropout: null, stage1_weights: false, use_fc: true }
+shuffle: false
+training_opt:
+  backbone: resnet50
+  batch_size: 32
+  dataset: MLT_coco
+  distribution_path: /home//project/NLT-multi-label-classification/dataset/coco/longtail2017/distribution.txt
+  co_occurrence_matrix: /hdd8//dataset/coco/LT_Missing_1/50/co-occurrence.npy
+  train_annatation_path: /hdd8//dataset/coco/LT_Missing_1/50/LT_train.json
+  val_annatation_path: /hdd8//dataset/coco/annotations/LT_coco_val.json
+  train_data_path: /hdd8//dataset/coco/images/train2017/
+  val_data_path: /hdd8//dataset/coco/images/val2017/
+  display_step: 10
+  display_grad: False
+  display_grad_step: 10
+  feature_dim: 512
+  log_dir: /home//project/ASL/log/coco/models/resnet50/
+  log_root: /home//project/ASL/log/coco/
+  num_classes: 80
+  num_epochs: 10
+  head_class_number: 100
+  tail_class_number: 20
+  num_workers: 8
+  open_threshold: 0.1
+  sampler: null
+  # sampler: {def_file: ./utils/ClassAwareSampler.py, num_samples_cls: 4, type: ClassAwareSampler}
+  sub_dir: models
+  gamma: 2
+  gpu_ids: 1,2

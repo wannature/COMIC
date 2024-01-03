@@ -27,7 +27,7 @@ The proposed dataset and framework implementations of our paper are as follows:
 - cuda=10.2
 
 ## PLT-MLC Datasets 
-We release all the PLT-MLC datasets on [link](https://drive.google.com/drive/folders/1u1IkCldMwGZ07iuko3WrMglMjV66i-ZT?usp=sharing).  The data distribution and statistics of the developed $\texttt{PLT-COCO}$ dataset and $\texttt{PLT-VOC}$ dataset are shown in the figure below.  We additionally provide the LT-MLC version of the two datasets at [link](https://drive.google.com/drive/folders/10_42yePPX6k9loqVej8XdSl8dU51q-Kz?usp=share_link)(**LT-COCO dataset**) and [link](https://drive.google.com/drive/folders/1UwetFfIZbD5u4NCc3yuS92QySaT3BTZK?usp=share_link) (**LT-VOC dataset**). Notably, we also upload the files of class distribtuion and label co-occurrence matrix in their corresponding link.
+We release all the PLT-MLC datasets on [link](https://drive.google.com/drive/folders/1u1IkCldMwGZ07iuko3WrMglMjV66i-ZT?usp=sharing).  The data distribution and statistics of the developed $\texttt{PLT-COCO}$ dataset and $\texttt{PLT-VOC}$ dataset are shown in the figure below.  Notably, we also upload the files of class distribtuion and label co-occurrence matrix in their corresponding link.
 <div align=center><img height="500" src="img/dataset.jpg"></div> 
 
 ## Pretrained Models  
